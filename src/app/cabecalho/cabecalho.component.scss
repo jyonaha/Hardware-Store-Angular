@@ -1,32 +1,64 @@
 @import "../app.component.scss";
 
-mat-toolbar {
-    background-color: $cor-principal;
-    color: $branco;
-
-    .container {
-        width: 1140px;
-        display: flex;
-        margin: auto;
-
-        h1 {
-            font-family: $fonte-principal;
-            font-size: $grande;
-            color: $branco;
-            padding-top: 15px;
-        }
-
-        .menu-spacer {
-            flex: 1 1 auto;
-        }
-
-        button {
-            font-family: $fonte-secundaria;
-            margin-top: 10px;
-
-            &:hover {
-                color: $cor-secundaria;
-            }
-        }
-    }
+.example-spacer {
+  flex: 1 1 auto;
 }
+mat-toolbar {
+  border-bottom: solid 1px gray;
+    .btn-secondary {
+        background-color: $cor-principal;
+        border: none;
+    }
+    padding-bottom: 12px;
+    background-color: $cor-principal;
+    h1 {
+      text-decoration: none;
+      font-family: $fonte-principal;
+      font-size: $extra-grande;
+      padding-top: 20px;
+      a{
+        text-decoration: none;
+        color: $branco;
+      }
+    }
+    .dropdown {
+      font-family: $fonte-secundaria;
+      font-size: $media;
+      .dropdown-item {
+        &:hover {
+          color: $cor-secundaria;
+          transition: 0.5 ease-in-out;
+        }
+      }
+    }
+    button {
+      font-family: $fonte-secundaria;
+      font-size: $media;
+      color: $branco;
+      margin-top: 10px;
+      &:hover {
+        color: $cor-secundaria;
+        transition: 0.5 ease-in-out;
+      }
+    }
+  }
+  .navbar{
+    width: 100%;
+
+  }
+
+  @media screen and (max-width: 768px) {
+    mat-toolbar {
+      h1 {
+        font-size: $media;
+      }
+      .navigation {
+        button {
+          font-size: $pequena;
+        }
+      }
+      .btn-secondary {
+        font-size: $pequena;
+      }
+    }
+  }

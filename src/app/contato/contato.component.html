@@ -3,7 +3,7 @@
     <form (ngSubmit)="submitForm()">
         <mat-form-field>
             <mat-label>Nome:</mat-label>
-            <input matInput placeholder="João Pinheiro" [formControl]="nome" required />
+            <input class="mobile" matInput placeholder="João Pinheiro" [formControl]="nome" required />
             <mat-error *ngIf="nome.invalid">{{ getErrorMessage() }}</mat-error>
         </mat-form-field>
         <mat-form-field>

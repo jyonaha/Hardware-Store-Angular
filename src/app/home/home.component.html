@@ -1,0 +1,60 @@
+<div class="container">
+    <h1> Olá {{ nome + " " + sobrenome }}!</h1>
+
+   <section id="produtos-favoritos">
+        <h2>Confira aqui os seus produtos favoritos:</h2>
+        <mat-grid-list cols="3" rowHeight="3:4">
+            <div *ngFor="let hardware of produtos; let i = index">
+                <mat-grid-tile *ngIf="hardware.favorito">
+                    <mat-card>
+                        <img mat-card-image [src]="hardware.foto" [alt]="hardware.titulo" />
+                        <mat-card-content>
+                            <h3>{{ hardware.titulo }}</h3>
+                            <ul>
+                                <li>{{ hardware.info1 }}</li>
+                                <li>{{ hardware.info2 }}</li>
+                                <li>{{ hardware.info3 }}</li>
+                                <li>Preço: {{ hardware.preco | currency }}</li>
+                            </ul>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button [class]="hardware.favorito === false ? 'favorite' : 'favorite-checked'"
+                                [title]="hardware.favorito === false ? 'Adicionar aos favoritos' : 'Remover dos favoritos'"
+                                mat-button (click)="toogleFavorito(i)">
+                                <mat-icon aria-hidden="false" aria-label="Favoritos" fontIcon="favorite"></mat-icon>
+                            </button>
+                            <button mat-button (click)="verDetalhes(hardware.id)">Detalhes</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </mat-grid-tile>
+            </div>
+        </mat-grid-list>
+    </section>
+    <section id="lista-produtos">
+        <h2>Todos os produtos:</h2>
+        <mat-grid-list cols="3" rowHeight="3:4">
+            <mat-grid-tile *ngFor="let hardware of produtos; let i = index">
+                <mat-card>
+                    <img mat-card-image [src]="hardware.foto" [alt]="hardware.titulo" />
+                    <mat-card-content>
+                        <h3>{{ hardware.titulo }}</h3>
+                        <ul>
+                            <li>{{ hardware.info1 }}</li>
+                            <li>{{ hardware.info2 }}</li>
+                            <li>{{ hardware.info3 }}</li>
+                            <li>Preço: {{ hardware.preco | currency }}</li>
+                        </ul>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button [class]="hardware.favorito === false ? 'favorite' : 'favorite-checked'"
+                            [title]="hardware.favorito === false ? 'Adicionar aos favoritos' : 'Remover dos favoritos'"
+                            mat-button (click)="toogleFavorito(i)">
+                            <mat-icon aria-hidden="false" aria-label="Favoritos" fontIcon="favorite"></mat-icon>
+                        </button>
+                        <button mat-button (click)="verDetalhes(hardware.id)">Mais detalhes</button>
+                    </mat-card-actions>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </section>
+</div>

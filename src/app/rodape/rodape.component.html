@@ -1,0 +1,15 @@
+<footer class="fundo">
+    <section class="container">
+        <div class="title-redes">
+            <div id="title-rodape">
+                <h3>&#169; {{ title }} | {{ copyright }} {{ developer }}</h3>
+            </div>
+            <div class="redes-sociais">
+                <ul>
+                    <li *ngFor="let rede of redesSociais"><a target="_blank" href="{{rede.link}}"><img class="icon"
+                                src="{{ rede.icone }}" alt="" /></a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</footer>
